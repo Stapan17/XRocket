@@ -1,0 +1,49 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <title>All Rockets</title>
+</head>
+
+<body>
+
+    <br> <br> <br> {% if rockets %}
+
+    <div style="margin: 10px;">
+
+        <table style="width: 90%;">
+            <tr>
+                <td width="100px">Rocket name</td>
+                <td width="20px">First flight</td>
+                <td width="100px">Rocket cost per launch($)</td>
+                <td width="20px">Rocket success rate(%)</td>
+                <td width="20px">More Details</td>
+            </tr>
+            {% for rocket in rockets %}
+            <tr>
+                <td width="50px">{{rocket.rocket_name}}</td>
+                <td width="20px">{{rocket.first_flight}}</td>
+                <td width="50px">{{rocket.cost_per_launch}}</td>
+                <td width="20px">{{rocket.success_rate_pct}}</td>
+                <td width="20px"><a href="{% url 'get_rocket_details' rocket.rocket_id %}">details</a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+    <h1>No rockets to show!</h1>
+
+    {% endif %}
+
+</body>
+
+</html>

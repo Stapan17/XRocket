@@ -1,0 +1,10 @@
+body {
+    background-color: pink;
+}
+
+table,
+td {
+    border: 1px solid #111111;
+    text-align: center;
+    padding: 15px;
+}
