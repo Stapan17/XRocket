@@ -10,8 +10,129 @@
 </head>
 
 <body>
+    <center>
+        <h2> Company: {{rocket.company}} <br> Rocket Name: {{rocket.rocket_name}}</h2>
 
-    {{rocket.rocket_name}} <br> {{rocket.height.meters}}
+        <hr style="color: black; width: 70%; height: 1px; background-color: black;">
+        <h3>Basic Details</h3>
+        <hr style="color: black; width: 50%; height: 1px; background-color: black;">
+
+        <div style="margin: 10px;">
+
+            <table style="width: 90%;">
+
+                <tr>
+                    <td>Number of Stages: {{rocket.stages}}</td>
+                    <td>Number of Boosters: {{rocket.boosters}}</td>
+                    <td>Active: {{rocket.active}}</td>
+                </tr>
+
+                <tr>
+                    <td>Cost per launch($): {{rocket.cost_per_launch}}</td>
+                    <td>Success rate(%): {{rocket.success_rate_pct}}</td>
+                    <td>First flight: {{rocket.first_flight}}</td>
+                </tr>
+
+            </table>
+        </div>
+
+        <hr style="color: black; width: 70%; height: 1px; background-color: black;">
+        <h3>Height, Diameter and Mass</h3>
+        <hr style="color: black; width: 50%; height: 1px; background-color: black;">
+
+        <div>
+
+            <table style="width: 70%;">
+                <tr>
+                    <td>Height</td>
+                    <td>Meters: {{rocket.height.meters}}</td>
+                    <td>Feet: {{rocket.height.feet}}</td>
+                </tr>
+
+                <tr>
+                    <td>Diameter</td>
+                    <td>Meters: {{rocket.diameter.meters}}</td>
+                    <td>Feet: {{rocket.diameter.feet}}</td>
+                </tr>
+
+                <tr>
+                    <td>Mass</td>
+                    <td>Kg: {{rocket.mass.kg}}</td>
+                    <td>Lb: {{rocket.mass.lb}}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <hr style="color: black; width: 70%; height: 1px; background-color: black;">
+        <h3>Payload Weights</h3>
+        <hr style="color: black; width: 50%; height: 1px; background-color: black;">
+
+        <div>
+
+            <table style="width: 70%;">
+                {% for payload in rocket.payload_weights %}
+                <tr>
+                    <td>Name: {{payload.name}}</td>
+                    <td>Kg: {{payload.kg}}</td>
+                    <td>Lb: {{payload.lb}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+        <hr style="color: black; width: 70%; height: 1px; background-color: black;">
+        <h3>Engine Details</h3>
+        <hr style="color: black; width: 50%; height: 1px; background-color: black;">
+
+        <div>
+
+            <table style="width: 70%;">
+
+                <tr>
+                    <td>Propellants</td>
+                    <td>{{rocket.engines.propellant_1}}</td>
+                    <td>{{rocket.engines.propellant_2}}</td>
+                </tr>
+
+                <tr>
+                    <td>Type: {{rocket.engines.type}}</td>
+                    <td>Version: {{rocket.engines.version}}</td>
+                    <td>Layout: {{rocket.engines.layout}}</td>
+                </tr>
+
+                <tr>
+                    <td>ISP</td>
+                    <td>Sea level: {{rocket.engines.isp.sea_level}}</td>
+                    <td>Vacuum: {{rocket.engines.isp.vacuum}}</td>
+                </tr>
+
+                <tr>
+                    <td>thrust_sea_level</td>
+                    <td>kN: {{rocket.engines.thrust_sea_level.kN}}</td>
+                    <td>lbf: {{rocket.engines.thrust_sea_level.lbf}}</td>
+                </tr>
+
+                <tr>
+                    <td>thrust_vacuum</td>
+                    <td>kN: {{rocket.engines.thrust_vacuum.kN}}</td>
+                    <td>lbf: {{rocket.engines.thrust_vacuum.lbf}}</td>
+                </tr>
+
+                <tr>
+                    <td>landing_legs</td>
+                    <td>number: {{rocket.landing_legs.number}}</td>
+                    <td>material: {{rocket.landing_legs.material}}</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </center>
+
 </body>
 
 </html>

@@ -42,7 +42,7 @@ def get_rocket_details(request, pk):
 
     json_data = response.json()
 
-    data = ['rocket_name', 'stages', 'boosters', 'cost_per_launch', 'success_rate_pct', 'first_flight', 'company', 'height', 'diameter', 'mass', 'first_stage', 'second_stage']
+    data = ['rocket_name', 'active', 'stages', 'boosters', 'cost_per_launch', 'success_rate_pct', 'first_flight', 'company', 'height', 'diameter', 'mass', 'payload_weights', 'engines', 'landing_legs']
 
     rocket = {}
 
@@ -52,5 +52,7 @@ def get_rocket_details(request, pk):
     context = {
         'rocket': rocket
     }
+
+    print(rocket)
 
     return render(request, 'rocket_details.html', context)
