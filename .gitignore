@@ -1,2 +1,7 @@
 venv/
 db.sqlite3
+.terrform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+main.tf
