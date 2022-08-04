@@ -53,6 +53,4 @@ def get_rocket_details(request, pk):
         'rocket': rocket
     }
 
-    print(rocket)
-
     return render(request, 'rocket_details.html', context)
